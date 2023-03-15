@@ -1,32 +1,34 @@
 <?php
 
-while(true) { // loop infinito
-    $entrada = fgets(STDIN); // lê a entrada
-    $valores = explode(' ', $entrada); // separa os valores da entrada em um array
+while (true) {
+    // Lê o par de valores M e N
+    fscanf(STDIN, "%d %d", $m, $n);
 
-    $m = intval($valores[0]); // converte o primeiro valor para inteiro
-    $n = intval($valores[1]); // converte o segundo valor para inteiro
-
-    if($m <= 0 || $n <= 0) { // se algum dos valores for menor ou igual a zero, encerra o programa
-        break;
+    // Verifica se algum dos valores é menor ou igual a zero
+    if ($m <= 0 || $n <= 0) {
+        break; // Sai do loop
     }
 
-    // caso m seja maior que n, troca os valores de m e n
-    if($m > $n) {
-        $temp = $m;
-        $m = $n;
-        $n = $temp;
+    // Define qual valor é o menor e qual é o maior
+    if ($m < $n) {
+        $min = $m; // Define $m como o menor valor
+        $max = $n; // Define $n como o maior valor
+    } else {
+        $min = $n; // Define $n como o menor valor
+        $max = $m; // Define $m como o maior valor
     }
 
-    $soma = 0; // inicializa a variável soma
-
-    // percorre os valores de m a n, imprimindo-os e somando-os
-    for($i = $m; $i <= $n; $i++) {
-        echo $i . " ";
-        $soma += $i;
+    // Calcula a soma dos inteiros consecutivos entre os valores M e N
+    $sum = 0; // Inicializa a variável $sum como zero
+    for ($i = $min; $i <= $max; $i++) { // Loop para somar os inteiros consecutivos
+        $sum += $i; // Soma o valor de $i na variável $sum
     }
 
-    echo "Sum=" . $soma . "\n"; // imprime a soma
+    // Imprime a sequência e a soma dos inteiros consecutivos
+    for ($i = $min; $i <= $max; $i++) { // Loop para imprimir a sequência
+        echo $i . " "; // Imprime o valor de $i seguido de um espaço
+    }
+    echo "Sum=" . $sum . "\n"; // Imprime a mensagem "Sum=" seguida da variável $sum e um caractere de quebra de linha
 }
 
 ?>
