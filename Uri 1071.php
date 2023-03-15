@@ -1,6 +1,6 @@
 <?php
 
-// Lê os valores de entrada
+// Lê os valores de entrada interval retorna o valor inteiro
 $x = intval(fgets(STDIN));
 $y = intval(fgets(STDIN));
 
