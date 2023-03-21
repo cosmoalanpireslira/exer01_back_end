@@ -1,34 +1,41 @@
 <?php
 
-// leitura do número de inteiros
-$n = intval(fgets(STDIN));
+// Lê a quantidade de números a serem lidos
+$num_numeros = intval(fgets(STDIN));
 
-// inicialização dos arrays pares e ímpares
+// Inicializa dois arrays, um para números pares e outro para números ímpares
 $pares = array();
 $impares = array();
 
-// loop de leitura dos inteiros e separação em pares e ímpares
-for ($i = 0; $i < $n; $i++) {
-    $numero = intval(fgets(STDIN));
-    if ($numero % 2 == 0) {
-        $pares[] = $numero;
-    } else {
-        $impares[] = $numero;
-    }
+// Loop pelos números a serem lidos
+for ($i = 0; $i < $num_numeros; $i++) {
+
+  // Lê o número atual
+  $numero = intval(fgets(STDIN));
+
+  // Se o número for par, adiciona ao array de números pares
+  if ($numero % 2 == 0) {
+    $pares[] = $numero;
+  }
+  // Caso contrário, adiciona ao array de números ímpares
+  else {
+    $impares[] = $numero;
+  }
+
 }
 
-// ordenação dos arrays pares e ímpares
+// Ordena o array de números pares em ordem crescente
 sort($pares);
+
+// Ordena o array de números ímpares em ordem decrescente
 rsort($impares);
 
-// impressão dos números pares
+// Imprime os números pares em ordem crescente
 foreach ($pares as $numero) {
-    echo $numero . PHP_EOL;
+  echo "$numero\n";
 }
 
-// impressão dos números ímpares
+// Imprime os números ímpares em ordem decrescente
 foreach ($impares as $numero) {
-    echo $numero . PHP_EOL;
+  echo "$numero\n";
 }
-
-?>
